@@ -1,0 +1,26 @@
+###
+### Move this to variables.tf, and fill out your desired values.
+###
+
+# This needs to be the _full_ path to the credentials file, because
+# https://github.com/hashicorp/terraform/issues/5610
+# I would also suggest not using the ~/.aws/credentials default
+# file path, so you do not switch environments and plant
+# infrastructure in the wrong account.
+variable "cred_file" {
+  default = "/Users/yourname/.aws/credentials-gamingaws"
+}
+
+# Make sure the vpc network range encompasses the subnet ranges.
+variable "cidr_block_vpc" {
+  default = "192.168.15.0/24"
+}
+
+variable "cidr_block_subnet_private" {
+  default = "192.168.15.96/27"
+}
+
+variable "cidr_block_subnet_public" {
+  default = "192.168.15.160/27""
+}
+
