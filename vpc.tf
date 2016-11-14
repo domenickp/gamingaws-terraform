@@ -38,3 +38,20 @@ resource "aws_internet_gateway" "pub_gw" {
     Name = "gaming_gw"
   }
 }
+
+resource "aws_route_table" "pub_rt" {
+  vpc_id = "${aws_vpc.gaming.id}"
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = "${aws_internet_gateway.pub_gw.id}"
+  }
+
+  tags {
+    Name = "gaming_rt"
+  }
+}
+
+resource "aws_route_table_association" "pub_rt_assoc" {
+  subnet_id = "${aws_subnet.public.id}"
+  route_table_id = "${aws_route_table.pub_rt.id}"
+}
