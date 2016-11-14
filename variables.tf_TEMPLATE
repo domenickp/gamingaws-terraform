@@ -24,3 +24,24 @@ variable "cidr_block_subnet_public" {
   default = "192.168.15.160/27""
 }
 
+# This is the cidr block for the network allowed to access the ec2 instance.
+variable "cidr_block_srcnet" {
+  default = "13.13.13.13/32"
+}
+
+# Windows Server 2012 with NVIDIA GRID GPU Driver on Windows Server 2012 6.2 
+# https://aws.amazon.com/marketplace/fulfillment?productId=c5a0fda2-e5d2-44cc-afdf-9e5212dea05e
+# This ami has the nvidia driver already installed, so it makes a good base image for the gaming PC.
+variable "gaming_win_ami" {
+  default = "ami-5ab84237"
+}
+
+# Public key from the keypair created in AWS.  Note terraform can't create a pair.
+# Once you create the pair in AWS and download the private key, run this to generate the pubkey:
+# ssh-keygen -y -f /path/to/privkey
+# and put that here.
+variable "gaming_key_public" {
+  default = "ssh-rsa notakeynotakeynotakeynotakeynotakeynotakeynotakeynotakeynotakeynotakeynotakeynotakeynotakeynotakeynotakeynotakeynotakeynotakeynotakeynotakeynotakeynotakeynotakeynotakeynotakeynotakeynotakeynotakeynotakeynotakeynotakeynotakeynotakeynotakeynotakeynotakeynotakeynotakeynotakeynotakeynotakeynotakeynotakeynotakeynotakeynotakeynotakeynotakeynotakeynotakeynotakeynotakeynotakeynotakey"
+}
+  default = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCspDk2jO+985eKtHrbJLmTaT4R1lL+CJsqrv2UbXrZJbvJC6pFveYarLMTTu+eWzl4avT7fqzUek9n8sKjT1jKyeu+8drX9VGXmbgope0SLLycQMpuxQsbphIS7Z5KbkeOJhLVn7lVX4zOPjQ//O+lLpx7N4Zw3PAD28R8U289MAW2gZHhQJ0lWBNFsBDrIw+sEW3TwdLkOqZ+z7E9O6/XZAgPUHarpGY8N0ibJLu8XfwYEqmers+FSMqGD1qKJDXOb40QNQsh/NVNBJ+VBchCowSTMiSsAfKHpcti0RYyj6acFFitmFB4XBTpy258BcsDloPLLVV1EnTdqez5bodv"
+}

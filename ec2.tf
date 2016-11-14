@@ -24,12 +24,18 @@ resource "aws_security_group" "outbound_all" {
   }
 }
 
+resource "aws_key_pair" "gaming_key" {
+  key_name = "gaming_key"
+  public_key = "${var.gaming_key_public}"
+}
+
 resource "aws_instance" "gaming_pc" {
   ami                         = "${var.gaming_win_ami}"
   instance_type               = "g2.2xlarge"
   subnet_id                   = "${aws_subnet.public.id}"
   associate_public_ip_address = "true"
   vpc_security_group_ids      = ["${aws_security_group.inbound_rdp.id}", "${aws_security_group.outbound_all.id}"]
+  key_name                    = "${aws_key_pair.gaming_key.key_name}"
 
   tags {
     Name = "Gaming PC"
