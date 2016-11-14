@@ -7,7 +7,7 @@ resource "aws_security_group" "gaming_ec2" {
       from_port   = 3389
       to_port     = 3389
       protocol    = "tcp"
-      cidr_blocks = ["100.36.177.107/32"]
+      cidr_blocks = ["${var.cidr_block_srcnet}"]
   }
 
   egress {
