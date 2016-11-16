@@ -36,6 +36,7 @@ resource "aws_instance" "gaming_pc" {
   associate_public_ip_address = "true"
   vpc_security_group_ids      = ["${aws_security_group.inbound_rdp.id}", "${aws_security_group.outbound_all.id}"]
   key_name                    = "${aws_key_pair.gaming_key.key_name}"
+  user_data                   = "${data.template_file.user_data.rendered}"
 
   tags {
     Name = "Gaming PC"
