@@ -20,9 +20,18 @@ foreach($level in "Machine","User") {
    } | Set-Content -Path { "Env:$($_.Name)" }
 }
 
+# This doesn't work, need to figure out why
 #choco install geforce-game-ready-driver-win7
-choco install -y steam
 
-Restart-Computer
+# Install steam
+choco install -y steam openvpn googlechrome
+
+# Enable sound in server 2012
+Set-Service Audiosrv -startuptype "Automatic"
+Start-Service Audiosrv
+
+# Download Razer Surround for virtual sound card.
+# Needs to be manually installed at the moment
+iwr -OutFile C:\Users\Administrator\Desktop\razer-surround.exe http://www.razerzone.com/surround/download
 
 </powershell>
