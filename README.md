@@ -20,3 +20,19 @@ as terraform seems to have trouble otherwise.
 
 Speaking of which, copy the variable.tf_TEMPLATE to variable.tf, and modify as necessary.
 Certainly change the credentials file path, and the subnets if you want to.
+
+Once the ami is launched, the userdata script will:
+- Rename the computer
+- Disable UAC, IE ESC, and the firewall
+- Set the script execution policy to RemoteSigned, for chocolatey
+- Install chocolatey, and use it to install openvpn, openssl, firefox, and steam
+- Start the windows audio service
+- Download the installers for these things, because they don't have a quiet installation option (or I haven't looked for it)
+    - Razer surround, to get a virtual sound card
+    - Hamachi, because I'm lazy and haven't got openvpn working yet
+    - DirectX and audio library installers
+- Blow away the standard display driver, so steam is forced to use the nvidia one (not sure if this is necessary)
+
+Restart the computer after you verify it's good (also on the TODO automation list)
+
+A good resource to use: http://www.win2012workstation.com/
