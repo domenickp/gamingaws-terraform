@@ -11,6 +11,10 @@ variable "cred_file" {
   default = "/Users/yourname/.aws/credentials-gamingaws"
 }
 
+variable "cred_profile" {
+  default = "default"
+}
+
 # Make sure the vpc network range encompasses the subnet ranges.
 variable "cidr_block_vpc" {
   default = "192.168.15.0/24"
