@@ -29,7 +29,7 @@ variable "cidr_block_subnet_private" {
 }
 
 variable "cidr_block_subnet_public" {
-  default = "192.168.15.160/27""
+  default = "192.168.15.160/27"
 }
 
 # This is the cidr block for the network allowed to access the ec2 instance.
