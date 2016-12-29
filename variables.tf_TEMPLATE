@@ -11,6 +11,10 @@ variable "cred_file" {
   default = "/Users/yourname/.aws/credentials-gamingaws"
 }
 
+# Update this if you are using a single credential file
+# with multiple credentials by profile name.  We'll assume you
+# are using a single specific credential file with a [default]
+# profile configured
 variable "cred_profile" {
   default = "default"
 }
