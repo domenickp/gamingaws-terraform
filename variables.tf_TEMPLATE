@@ -11,6 +11,14 @@ variable "cred_file" {
   default = "/Users/yourname/.aws/credentials-gamingaws"
 }
 
+# Update this if you are using a single credential file
+# with multiple credentials by profile name.  We'll assume you
+# are using a single specific credential file with a [default]
+# profile configured
+variable "cred_profile" {
+  default = "default"
+}
+
 # Make sure the vpc network range encompasses the subnet ranges.
 variable "cidr_block_vpc" {
   default = "192.168.15.0/24"
@@ -21,7 +29,7 @@ variable "cidr_block_subnet_private" {
 }
 
 variable "cidr_block_subnet_public" {
-  default = "192.168.15.160/27""
+  default = "192.168.15.160/27"
 }
 
 # This is the cidr block for the network allowed to access the ec2 instance.
